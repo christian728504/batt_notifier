@@ -63,8 +63,8 @@ static void daemonize() {
     // set new file permissions
     umask(0);
 
-    // change the working directory to temp
-    chdir("/temp");
+    // change the working directory to root
+    chdir("/");
 
     // close all open file discriptors
     int x;
@@ -114,7 +114,7 @@ int main() {
             notification_batt1 = 0;
         }
 
-        sleep(UPDATE_INTERVAL);
+        usleep(UPDATE_INTERVAL * 1000);
     }
 
     return 0;
